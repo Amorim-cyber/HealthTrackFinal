@@ -19,12 +19,6 @@ public class PesoDAO {
 		this.data = data;
 		this.codigoUsuario = codigoUsuario;
 	}
-	
-	public PesoDAO(Double valor, Calendar data, Long codigoUsuario) {
-		this.valor = valor;
-		this.data = data;
-		this.codigoUsuario = codigoUsuario;
-	}
 
 	public Long getCodigo() {
 		return codigo;

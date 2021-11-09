@@ -1,0 +1,29 @@
+package com.health.track.services;
+
+import java.util.List;
+
+import com.health.track.entities.Peso;
+import com.health.track.entities.dao.PesoDAO;
+import com.health.track.interfaces.PesoInterface;
+
+public class PesoService implements PesoInterface{
+
+	@Override
+	public List<Peso> getPeso(Long codigoCliente) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setPeso(PesoDAO dao) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deletePeso(Long codigoCliente, Long codigoPeso) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
