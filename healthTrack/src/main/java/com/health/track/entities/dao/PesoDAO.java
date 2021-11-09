@@ -1,15 +1,15 @@
-package com.health.track.entities;
+package com.health.track.entities.dao;
 
 import java.util.Calendar;
 
-public class Peso {
+public class PesoDAO {
 	
 	private Long codigo;
 	private Double valor;
 	private Calendar data;
 	private Long codigoUsuario;
 	
-	public Peso(Long codigo, Double valor, Calendar data, Long codigoUsuario) {
+	public PesoDAO(Long codigo, Double valor, Calendar data, Long codigoUsuario) {
 		this.codigo = codigo;
 		this.valor = valor;
 		this.data = data;
@@ -47,7 +47,5 @@ public class Peso {
 	public void setCodigoUsuario(Long codigoUsuario) {
 		this.codigoUsuario = codigoUsuario;
 	}
-	
-	
 
 }

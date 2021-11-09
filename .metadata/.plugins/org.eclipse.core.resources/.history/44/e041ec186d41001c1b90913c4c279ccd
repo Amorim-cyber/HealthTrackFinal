@@ -7,13 +7,11 @@ public class Peso {
 	private Long codigo;
 	private Double valor;
 	private Calendar data;
-	private Long codigoUsuario;
 	
-	public Peso(Long codigo, Double valor, Calendar data, Long codigoUsuario) {
+	public Peso(Long codigo, Double valor, Calendar data) {
 		this.codigo = codigo;
 		this.valor = valor;
 		this.data = data;
-		this.codigoUsuario = codigoUsuario;
 	}
 
 	public Long getCodigo() {
@@ -39,15 +37,5 @@ public class Peso {
 	public void setData(Calendar data) {
 		this.data = data;
 	}
-
-	public Long getCodigoUsuario() {
-		return codigoUsuario;
-	}
-
-	public void setCodigoUsuario(Long codigoUsuario) {
-		this.codigoUsuario = codigoUsuario;
-	}
-	
-	
 
 }

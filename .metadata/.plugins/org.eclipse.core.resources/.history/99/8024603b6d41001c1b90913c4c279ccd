@@ -9,11 +9,10 @@ public class Peso {
 	private Calendar data;
 	private Long codigoUsuario;
 	
-	public Peso(Long codigo, Double valor, Calendar data, Long codigoUsuario) {
+	public Peso(Long codigo, Double valor, Calendar data) {
 		this.codigo = codigo;
 		this.valor = valor;
 		this.data = data;
-		this.codigoUsuario = codigoUsuario;
 	}
 
 	public Long getCodigo() {
