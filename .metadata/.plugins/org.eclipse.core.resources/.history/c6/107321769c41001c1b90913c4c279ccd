@@ -1,0 +1,16 @@
+package com.health.track.entities;
+
+import java.util.Calendar;
+
+public class Pressao {
+	
+	private Long codigo;
+	private Double valor;
+	private Calendar data;
+	private Long codigoUsuario;
+	
+	public Pressao() {
+		
+	}
+
+}
