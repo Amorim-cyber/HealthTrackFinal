@@ -6,10 +6,10 @@ import com.health.track.entities.dao.PressaoDAO;
 
 public interface PressaoInterface {
 	
-	public abstract List<PressaoDAO> getPeso(Long codigoCliente);
+	public abstract List<PressaoDAO> getPressao(Long codigoCliente);
 	
-	public abstract void setPeso(PressaoDAO dao);
+	public abstract void setPressao(PressaoDAO dao);
 	
-	public abstract void deletePeso(Long codigoCliente, Long codigoPeso);
+	public abstract void deletePressao(Long codigoCliente, Long codigoPeso);
 
 }

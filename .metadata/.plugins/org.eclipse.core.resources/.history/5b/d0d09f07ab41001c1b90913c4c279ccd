@@ -28,7 +28,7 @@ public class PesoService implements PesoInterface{
 		try {
 			conexao= DBManager.obterConexao();
 			stmt= conexao.prepareStatement("SELECT * FROM T_HIST_W WHERE "+
-			"T_PERSON_CD_PERSON=? ORDER BY DT_W_REGISTER DESC");
+			"T_PERSON_CD_PERSON=? ORDER BY dt_w_register DESC");
 			
 			stmt.setLong(1, codigoCliente);
 			
@@ -79,13 +79,13 @@ public class PesoService implements PesoInterface{
 						+ "VALUES (hist_w_seq.NEXTVAL,?,?,?)";
 				
 				stmt= conexao.prepareStatement(sql);
-				stmt.setLong(3, peso.getCodigoUsuario());
+				stmt.setLong(1, peso.getCodigoUsuario());
 					
 				Date data = new Date(peso.getData().getTimeInMillis());
 
 				stmt.setDate(2, data);
 				
-				stmt.setDouble(1, peso.getValor());
+				stmt.setDouble(3, peso.getValor());
 			}else {
 				sql = "UPDATE T_HIST_W SET NR_WEIGHT=?,"+
 						" DT_W_REGISTER=?,"+
