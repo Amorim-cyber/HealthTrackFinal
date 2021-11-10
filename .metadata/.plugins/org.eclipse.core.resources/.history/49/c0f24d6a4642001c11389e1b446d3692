@@ -1,0 +1,5 @@
+package com.health.track.entities.dao;
+
+public class AtividadeDAO {
+
+}
