@@ -1,0 +1,14 @@
+package com.health.track.entities;
+
+public class Pessoa {
+	
+	private Long codigo;
+	private Long codigoUsuario;
+	private String nome;
+	private Integer cpf;
+	private String email;
+	private Double altura;
+	
+	
+
+}
