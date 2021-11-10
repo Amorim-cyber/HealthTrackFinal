@@ -10,42 +10,46 @@ import java.util.Calendar;
 import java.util.List;
 
 import com.health.track.dbConnection.DBManager;
-import com.health.track.entities.Pressao;
-import com.health.track.entities.dao.PressaoDAO;
-import com.health.track.interfaces.PressaoInterface;
-import com.health.track.mappers.PressaoMapper;
+import com.health.track.entities.Atividade;
+import com.health.track.entities.Peso;
+import com.health.track.entities.dao.AtividadeDAO;
+import com.health.track.interfaces.AtividadeInterface;
+import com.health.track.mappers.AtividadeMapper;
+import com.health.track.mappers.PesoMapper;
 
-public class PressaoService implements PressaoInterface {
+public class AtividadeService implements AtividadeInterface{
 	
 	private Connection conexao;
 
 	@Override
-	public List<PressaoDAO> getPressao(Long codigoPessoa) {
-		List<PressaoDAO> listaPressao = new ArrayList<PressaoDAO>();
+	public List<AtividadeDAO> getAtividade(Long codigoUsuario) {
+		List<AtividadeDAO> listaAtividade = new ArrayList<AtividadeDAO>();
 		PreparedStatement stmt= null;
 		ResultSet rs= null;
 		
 		try {
 			conexao= DBManager.obterConexao();
-			stmt= conexao.prepareStatement("SELECT * FROM T_HIST_PR WHERE "+
-			"T_PERSON_CD_PERSON=? ORDER BY DT_PR_REGISTER DESC");
+			stmt= conexao.prepareStatement("SELECT * FROM T_ACTIVITY "+
+			"T_USER_CD_USER=? ORDER BY DT_A_REGISTER DESC");
 			
-			stmt.setLong(1, codigoPessoa);
+			stmt.setLong(1, codigoUsuario);
 			
 			rs= stmt.executeQuery();
 			
 			while(rs.next()) {
-				Long idPressao = rs.getLong("CD_PRESSURE");
-				Double valorPressao = rs.getDouble("NR_PRESSURE");
-				Date datePressao = rs.getDate("DT_PR_REGISTER");
-				Long idPessoa = rs.getLong("T_PERSON_CD_PERSON");
+				Long idAtividade = rs.getLong("CD_ACTIVITY");
+				Double kcal = rs.getDouble("NR_KCAL");
+				Double tempo = rs.getDouble("NR_TIME");
+				Double descanso = rs.getDouble("NR_REST");
+				Date dateAtividade = rs.getDate("DT_A_REGISTER");
+				Long idUsuario = rs.getLong("T_USER_CD_USER");
 				
 				Calendar data = Calendar.getInstance();
 				
-				data.setTimeInMillis(datePressao.getTime());
+				data.setTimeInMillis(dateAtividade.getTime());
 
-				Pressao pressao = new Pressao(idPressao,valorPressao,data,idPessoa);
-				listaPressao.add(PressaoMapper.toDAO(pressao));
+				Atividade atividade = new Atividade(idAtividade,kcal,tempo,descanso,data,idUsuario);
+				listaAtividade.add(AtividadeMapper.toDAO(atividade));
 			}
 			
 		} catch (SQLException e) {
@@ -60,22 +64,23 @@ public class PressaoService implements PressaoInterface {
 			}
 		}
 		
-		return listaPressao;
+		
+		return listaAtividade;
 	}
 
 	@Override
-	public void setPressao(PressaoDAO dao) {
+	public void setAtividade(AtividadeDAO dao) {
 		PreparedStatement stmt= null;
 		
-		Pressao pressao = PressaoMapper.toEntity(dao);
+		Atividade atividade = AtividadeMapper.toEntity(dao);
 		
 		try {
 			conexao= DBManager.obterConexao();
 			
 			String sql;
 			
-			if(pressao.getCodigo()==null) {
-				sql = "INSERT INTO T_HIST_PR (CD_PRESSURE,NR_PRESSURE,DT_PR_REGISTER,T_PERSON_CD_PERSON) "
+			if(atividade.getCodigo()==null) {
+				sql = "INSERT INTO T_HIST_PR (CD_ACTIVITY,NR_KCAL,DT_PR_REGISTER,T_PERSON_CD_PERSON) "
 						+ "VALUES (hist_pr_seq.NEXTVAL,?,?,?)";
 				
 				stmt= conexao.prepareStatement(sql);
@@ -117,32 +122,8 @@ public class PressaoService implements PressaoInterface {
 	}
 
 	@Override
-	public void deletePressao(Long codigoPessoa, Long codigoPressao) {
-		PreparedStatement stmt= null;
-		
-		try {
-			conexao= DBManager.obterConexao();
-			
-			String sql = "DELETE FROM T_HIST_PR WHERE"+
-					" CD_PRESSURE=? AND T_PERSON_CD_PERSON=?";
-			
-			stmt= conexao.prepareStatement(sql);
-			stmt.setLong(1, codigoPressao);
-			stmt.setLong(2, codigoPessoa);
-			
-			stmt.executeUpdate();	
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally{
-			try{
-				stmt.close();
-				conexao.close();
-			} catch(SQLException e) {
-				e.printStackTrace();
-			}
-		}
+	public void deleteAtividade(Long codigoUsuario, Long codigoAtividade) {
+		// TODO Auto-generated method stub
 		
 	}
 

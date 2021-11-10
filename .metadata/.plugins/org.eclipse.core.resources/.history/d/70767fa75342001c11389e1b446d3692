@@ -1,0 +1,79 @@
+package com.health.track.services;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
+import com.health.track.dbConnection.DBManager;
+import com.health.track.entities.Peso;
+import com.health.track.entities.dao.AtividadeDAO;
+import com.health.track.interfaces.AtividadeInterface;
+import com.health.track.mappers.PesoMapper;
+
+public class AtividadeService implements AtividadeInterface{
+	
+	private Connection conexao;
+
+	@Override
+	public List<AtividadeDAO> getAtividade(Long codigoUsuario) {
+		List<AtividadeDAO> listaAtividade = new ArrayList<AtividadeDAO>();
+		PreparedStatement stmt= null;
+		ResultSet rs= null;
+		
+		try {
+			conexao= DBManager.obterConexao();
+			stmt= conexao.prepareStatement("SELECT * FROM T_HIST_W WHERE "+
+			"T_PERSON_CD_PERSON=? ORDER BY DT_W_REGISTER DESC");
+			
+			stmt.setLong(1, codigoPessoa);
+			
+			rs= stmt.executeQuery();
+			
+			while(rs.next()) {
+				Long idPeso = rs.getLong("CD_WEIGHT");
+				Double valorPeso = rs.getDouble("NR_WEIGHT");
+				Date datePeso = rs.getDate("DT_W_REGISTER");
+				Long idUsuario = rs.getLong("T_PERSON_CD_PERSON");
+				
+				Calendar data = Calendar.getInstance();
+				
+				data.setTimeInMillis(datePeso.getTime());
+
+				Peso peso = new Peso(idPeso,valorPeso,data,idUsuario);
+				listaPeso.add(PesoMapper.toDAO(peso));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try{
+				stmt.close();
+				rs.close();
+				conexao.close();
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		return null;
+	}
+
+	@Override
+	public void setAtividade(AtividadeDAO dao) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteAtividade(Long codigoUsuario, Long codigoAtividade) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -38,13 +38,13 @@ public class PressaoService implements PressaoInterface {
 				Long idPressao = rs.getLong("CD_PRESSURE");
 				Double valorPressao = rs.getDouble("NR_PRESSURE");
 				Date datePressao = rs.getDate("DT_PR_REGISTER");
-				Long idPessoa = rs.getLong("T_PERSON_CD_PERSON");
+				Long idUsuario = rs.getLong("T_PERSON_CD_PERSON");
 				
 				Calendar data = Calendar.getInstance();
 				
 				data.setTimeInMillis(datePressao.getTime());
 
-				Pressao pressao = new Pressao(idPressao,valorPressao,data,idPessoa);
+				Pressao pressao = new Pressao(idPressao,valorPressao,data,idUsuario);
 				listaPressao.add(PressaoMapper.toDAO(pressao));
 			}
 			

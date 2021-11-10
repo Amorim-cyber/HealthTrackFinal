@@ -8,8 +8,8 @@ public class AtividadeMapper {
 	public static Atividade toEntity(AtividadeDAO dao) {
 		Atividade atividade = new Atividade();
 			atividade.setCodigo(dao.getCodigo());
-			atividade.setKcal(dao.getKcal());
-			atividade.setTempo(dao.getTempo());
+			atividade.setMetaKcal(dao.getMetaKcal());
+			atividade.setMetaTempo(dao.getMetaTempo());
 			atividade.setData(dao.getData());
 			atividade.setDescanso(dao.getDescanso());
 			atividade.setCodigoUsuario(dao.getCodigoUsuario());
@@ -21,8 +21,8 @@ public class AtividadeMapper {
 	public static AtividadeDAO toDAO(Atividade atividade) {
 		AtividadeDAO dao = new AtividadeDAO();
 			dao.setCodigo(atividade.getCodigo());
-			dao.setKcal(atividade.getKcal());
-			dao.setTempo(atividade.getTempo());
+			dao.setMetaKcal(atividade.getMetaKcal());
+			dao.setMetaTempo(atividade.getMetaTempo());
 			dao.setData(atividade.getData());
 			dao.setDescanso(atividade.getDescanso());
 			dao.setCodigoUsuario(atividade.getCodigoUsuario());

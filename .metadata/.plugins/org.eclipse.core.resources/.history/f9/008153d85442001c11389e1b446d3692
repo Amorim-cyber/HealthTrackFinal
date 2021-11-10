@@ -5,8 +5,8 @@ import java.util.Calendar;
 public class AtividadeDAO {
 	
 	private Long codigo;
-	private Double kcal;
-	private Double tempo;
+	private Double metaKcal;
+	private Double metaTempo;
 	private Double descanso;
 	private Calendar data;
 	private Long codigoUsuario;
@@ -18,17 +18,17 @@ public class AtividadeDAO {
 	public AtividadeDAO(Long codigo, Double metaKcal, Double metaTempo, Double descanso, Calendar data,
 			Long codigoUsuario) {
 		this.codigo = codigo;
-		this.kcal = metaKcal;
-		this.tempo = metaTempo;
+		this.metaKcal = metaKcal;
+		this.metaTempo = metaTempo;
 		this.descanso = descanso;
 		this.data = data;
 		this.codigoUsuario = codigoUsuario;
 	}
 
-	public AtividadeDAO(Double kcal, Double tempo, Double descanso, Calendar data,
+	public AtividadeDAO(Double metaKcal, Double metaTempo, Double descanso, Calendar data,
 			Long codigoUsuario) {
-		this.kcal = kcal;
-		this.tempo = tempo;
+		this.metaKcal = metaKcal;
+		this.metaTempo = metaTempo;
 		this.descanso = descanso;
 		this.data = data;
 		this.codigoUsuario = codigoUsuario;
@@ -43,20 +43,20 @@ public class AtividadeDAO {
 		this.codigo = codigo;
 	}
 
-	public Double getKcal() {
-		return kcal;
+	public Double getMetaKcal() {
+		return metaKcal;
 	}
 
-	public void setKcal(Double kcal) {
-		this.kcal = kcal;
+	public void setMetaKcal(Double metaKcal) {
+		this.metaKcal = metaKcal;
 	}
 
-	public Double getTempo() {
-		return tempo;
+	public Double getMetaTempo() {
+		return metaTempo;
 	}
 
-	public void setTempo(Double tempo) {
-		this.tempo = tempo;
+	public void setMetaTempo(Double metaTempo) {
+		this.metaTempo = metaTempo;
 	}
 
 	public Double getDescanso() {

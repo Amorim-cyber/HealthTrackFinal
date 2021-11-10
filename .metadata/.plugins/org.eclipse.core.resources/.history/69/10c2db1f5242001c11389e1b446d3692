@@ -1,0 +1,28 @@
+package com.health.track.services;
+
+import java.util.List;
+
+import com.health.track.entities.dao.AtividadeDAO;
+import com.health.track.interfaces.AtividadeInterface;
+
+public class AtividadeService implements AtividadeInterface{
+
+	@Override
+	public List<AtividadeDAO> getAtividade(Long codigoUsuario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setAtividade(AtividadeDAO dao) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteAtividade(Long codigoUsuario, Long codigoAtividade) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

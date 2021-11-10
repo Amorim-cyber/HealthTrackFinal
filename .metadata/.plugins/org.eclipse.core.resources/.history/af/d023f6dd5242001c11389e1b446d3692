@@ -38,13 +38,13 @@ public class PesoService implements PesoInterface{
 				Long idPeso = rs.getLong("CD_WEIGHT");
 				Double valorPeso = rs.getDouble("NR_WEIGHT");
 				Date datePeso = rs.getDate("DT_W_REGISTER");
-				Long idPessoa = rs.getLong("T_PERSON_CD_PERSON");
+				Long idUsuario = rs.getLong("T_PERSON_CD_PERSON");
 				
 				Calendar data = Calendar.getInstance();
 				
 				data.setTimeInMillis(datePeso.getTime());
 
-				Peso peso = new Peso(idPeso,valorPeso,data,idPessoa);
+				Peso peso = new Peso(idPeso,valorPeso,data,idUsuario);
 				listaPeso.add(PesoMapper.toDAO(peso));
 			}
 			

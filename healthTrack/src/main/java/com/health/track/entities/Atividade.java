@@ -5,8 +5,8 @@ import java.util.Calendar;
 public class Atividade {
 
 	private Long codigo;
-	private Double metaKcal;
-	private Double metaTempo;
+	private Double kcal;
+	private Double tempo;
 	private Double descanso;
 	private Calendar data;
 	private Long codigoUsuario;
@@ -15,11 +15,11 @@ public class Atividade {
 		
 	}
 
-	public Atividade(Long codigo, Double metaKcal, Double metaTempo, Double descanso, Calendar data,
+	public Atividade(Long codigo, Double kcal, Double tempo, Double descanso, Calendar data,
 			Long codigoUsuario) {
 		this.codigo = codigo;
-		this.metaKcal = metaKcal;
-		this.metaTempo = metaTempo;
+		this.kcal = kcal;
+		this.tempo = tempo;
 		this.descanso = descanso;
 		this.data = data;
 		this.codigoUsuario = codigoUsuario;
@@ -35,20 +35,20 @@ public class Atividade {
 		this.codigo = codigo;
 	}
 
-	public Double getMetaKcal() {
-		return metaKcal;
+	public Double getKcal() {
+		return kcal;
 	}
 
-	public void setMetaKcal(Double metaKcal) {
-		this.metaKcal = metaKcal;
+	public void setKcal(Double kcal) {
+		this.kcal = kcal;
 	}
 
-	public Double getMetaTempo() {
-		return metaTempo;
+	public Double getTempo() {
+		return tempo;
 	}
 
-	public void setMetaTempo(Double metaTempo) {
-		this.metaTempo = metaTempo;
+	public void setTempo(Double tempo) {
+		this.tempo = tempo;
 	}
 
 	public Double getDescanso() {
