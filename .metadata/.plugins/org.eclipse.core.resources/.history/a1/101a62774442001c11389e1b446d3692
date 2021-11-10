@@ -10,7 +10,7 @@ public class PressaoMapper {
 			pressao.setCodigo(dao.getCodigo());
 			pressao.setValor(dao.getValor());
 			pressao.setData(dao.getData());
-			pressao.setCodigoPessoa(dao.getCodigoPessoa());
+			pressao.setCodigoUsuario(dao.getCodigoUsuario());
 		return pressao;
 	}
 
@@ -19,7 +19,7 @@ public class PressaoMapper {
 			dao.setCodigo(pressao.getCodigo());
 			dao.setValor(pressao.getValor());
 			dao.setData(pressao.getData());
-			dao.setCodigoPessoa(pressao.getCodigoPessoa());
+			dao.setCodigoUsuario(pressao.getCodigoUsuario());
 		return dao;
 	}
 

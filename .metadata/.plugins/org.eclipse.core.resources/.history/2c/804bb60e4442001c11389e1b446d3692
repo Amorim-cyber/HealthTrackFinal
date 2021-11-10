@@ -10,7 +10,7 @@ public class PesoMapper {
 			peso.setCodigo(dao.getCodigo());
 			peso.setValor(dao.getValor());
 			peso.setData(dao.getData());
-			peso.setCodigoPessoa(dao.getCodigoPessoa());
+			peso.setCodigoUsuario(dao.getCodigoUsuario());
 		return peso;
 	}
 
@@ -19,7 +19,7 @@ public class PesoMapper {
 			dao.setCodigo(peso.getCodigo());
 			dao.setValor(peso.getValor());
 			dao.setData(peso.getData());
-			dao.setCodigoPessoa(peso.getCodigoPessoa());
+			dao.setCodigoUsuario(peso.getCodigoUsuario());
 		return dao;
 	}
 	

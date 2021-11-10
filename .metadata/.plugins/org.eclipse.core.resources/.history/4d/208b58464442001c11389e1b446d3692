@@ -7,17 +7,17 @@ public class Pressao {
 	private Long codigo;
 	private Double valor;
 	private Calendar data;
-	private Long codigoPessoa;
+	private Long codigoUsuario;
 	
 	public Pressao() {
 		
 	}
 
-	public Pressao(Long codigo, Double valor, Calendar data, Long codigoPessoa) {
+	public Pressao(Long codigo, Double valor, Calendar data, Long codigoUsuario) {
 		this.codigo = codigo;
 		this.valor = valor;
 		this.data = data;
-		this.codigoPessoa = codigoPessoa;
+		this.codigoUsuario = codigoUsuario;
 	}
 
 	public Long getCodigo() {
@@ -44,12 +44,12 @@ public class Pressao {
 		this.data = data;
 	}
 
-	public Long getCodigoPessoa() {
-		return codigoPessoa;
+	public Long getCodigoUsuario() {
+		return codigoUsuario;
 	}
 
-	public void setCodigoPessoa(Long codigoPessoa) {
-		this.codigoPessoa = codigoPessoa;
+	public void setCodigoUsuario(Long codigoUsuario) {
+		this.codigoUsuario = codigoUsuario;
 	}
 	
 	

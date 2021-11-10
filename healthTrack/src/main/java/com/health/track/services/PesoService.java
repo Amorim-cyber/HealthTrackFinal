@@ -79,7 +79,7 @@ public class PesoService implements PesoInterface{
 						+ "VALUES (hist_w_seq.NEXTVAL,?,?,?)";
 				
 				stmt= conexao.prepareStatement(sql);
-				stmt.setLong(3, peso.getCodigoUsuario());
+				stmt.setLong(3, peso.getCodigoPessoa());
 					
 				Date data = new Date(peso.getData().getTimeInMillis());
 
@@ -97,7 +97,7 @@ public class PesoService implements PesoInterface{
 
 				stmt.setDate(2, data);
 				stmt.setLong(3, peso.getCodigo());
-				stmt.setLong(4, peso.getCodigoUsuario());
+				stmt.setLong(4, peso.getCodigoPessoa());
 			}
 			
 			stmt.executeUpdate();	

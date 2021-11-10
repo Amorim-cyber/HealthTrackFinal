@@ -7,23 +7,23 @@ public class PressaoDAO {
 	private Long codigo;
 	private Double valor;
 	private Calendar data;
-	private Long codigoUsuario;
+	private Long codigoPessoa;
 	
 	public PressaoDAO() {
 		
 	}
 	
-	public PressaoDAO(Long codigo, Double valor, Calendar data, Long codigoUsuario) {
+	public PressaoDAO(Long codigo, Double valor, Calendar data, Long codigoPessoa) {
 		this.codigo = codigo;
 		this.valor = valor;
 		this.data = data;
-		this.codigoUsuario = codigoUsuario;
+		this.codigoPessoa = codigoPessoa;
 	}
 	
-	public PressaoDAO(Double valor, Calendar data, Long codigoUsuario) {
+	public PressaoDAO(Double valor, Calendar data, Long codigoPessoa) {
 		this.valor = valor;
 		this.data = data;
-		this.codigoUsuario = codigoUsuario;
+		this.codigoPessoa = codigoPessoa;
 	}
 
 	public Long getCodigo() {
@@ -50,12 +50,12 @@ public class PressaoDAO {
 		this.data = data;
 	}
 
-	public Long getCodigoUsuario() {
-		return codigoUsuario;
+	public Long getCodigoPessoa() {
+		return codigoPessoa;
 	}
 
-	public void setCodigoUsuario(Long codigoUsuario) {
-		this.codigoUsuario = codigoUsuario;
+	public void setCodigoPessoa(Long codigoPessoa) {
+		this.codigoPessoa = codigoPessoa;
 	}
 	
 }

@@ -79,7 +79,7 @@ public class PressaoService implements PressaoInterface {
 						+ "VALUES (hist_pr_seq.NEXTVAL,?,?,?)";
 				
 				stmt= conexao.prepareStatement(sql);
-				stmt.setLong(3, pressao.getCodigoPessoa());
+				stmt.setLong(3, pressao.getCodigoUsuario());
 					
 				Date data = new Date(pressao.getData().getTimeInMillis());
 
@@ -97,7 +97,7 @@ public class PressaoService implements PressaoInterface {
 
 				stmt.setDate(2, data);
 				stmt.setLong(3, pressao.getCodigo());
-				stmt.setLong(4, pressao.getCodigoPessoa());
+				stmt.setLong(4, pressao.getCodigoUsuario());
 			}
 			
 			stmt.executeUpdate();	

@@ -48,7 +48,7 @@ public class Pressao {
 		return codigoPessoa;
 	}
 
-	public void setCodigoPessoa(Long codigoPessoa) {
+	public void setCodigoUsuario(Long codigoPessoa) {
 		this.codigoPessoa = codigoPessoa;
 	}
 	
