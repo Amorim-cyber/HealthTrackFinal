@@ -10,6 +10,6 @@ public interface PesoInterface {
 	
 	public abstract void setPeso(PesoDAO dao);
 	
-	public abstract void deletePeso(Long codigoPessoa, Long codigoPeso);
+	public abstract void deletePeso(Long codigoCliente, Long codigoPeso);
 	
 }

@@ -117,7 +117,7 @@ public class PesoService implements PesoInterface{
 	}
 
 	@Override
-	public void deletePeso(Long codigoPessoa, Long codigoPeso) {
+	public void deletePeso(Long codigoCliente, Long codigoPeso) {
 		PreparedStatement stmt= null;
 		
 		try {
@@ -128,7 +128,7 @@ public class PesoService implements PesoInterface{
 			
 			stmt= conexao.prepareStatement(sql);
 			stmt.setLong(1, codigoPeso);
-			stmt.setLong(2, codigoPessoa);
+			stmt.setLong(2, codigoCliente);
 			
 			stmt.executeUpdate();	
 			

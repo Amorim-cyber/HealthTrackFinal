@@ -20,7 +20,7 @@ public class PressaoService implements PressaoInterface {
 	private Connection conexao;
 
 	@Override
-	public List<PressaoDAO> getPressao(Long codigoPessoa) {
+	public List<PressaoDAO> getPressao(Long codigoCliente) {
 		List<PressaoDAO> listaPressao = new ArrayList<PressaoDAO>();
 		PreparedStatement stmt= null;
 		ResultSet rs= null;
@@ -30,7 +30,7 @@ public class PressaoService implements PressaoInterface {
 			stmt= conexao.prepareStatement("SELECT * FROM T_HIST_PR WHERE "+
 			"T_PERSON_CD_PERSON=? ORDER BY DT_PR_REGISTER DESC");
 			
-			stmt.setLong(1, codigoPessoa);
+			stmt.setLong(1, codigoCliente);
 			
 			rs= stmt.executeQuery();
 			
@@ -117,7 +117,7 @@ public class PressaoService implements PressaoInterface {
 	}
 
 	@Override
-	public void deletePressao(Long codigoPessoa, Long codigoPressao) {
+	public void deletePressao(Long codigoCliente, Long codigoPressao) {
 		PreparedStatement stmt= null;
 		
 		try {
@@ -128,7 +128,7 @@ public class PressaoService implements PressaoInterface {
 			
 			stmt= conexao.prepareStatement(sql);
 			stmt.setLong(1, codigoPressao);
-			stmt.setLong(2, codigoPessoa);
+			stmt.setLong(2, codigoCliente);
 			
 			stmt.executeUpdate();	
 			
