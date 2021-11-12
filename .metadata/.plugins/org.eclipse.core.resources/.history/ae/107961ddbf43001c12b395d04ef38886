@@ -7,10 +7,6 @@ public class Usuario extends Pessoa{
 	private Integer metaKcal;
 	private Integer metaTempo;
 	
-	public Usuario() {
-		
-	}
-	
 	public Usuario(Long codigo, String senha, Integer metaKcal, Integer metaTempo) {
 		this.codigo = codigo;
 		this.senha = senha;

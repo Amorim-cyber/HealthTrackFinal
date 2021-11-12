@@ -1,18 +1,22 @@
-package com.health.track.entities;
+package com.health.track.entities.dao;
 
-public class Usuario extends Pessoa{
+import com.health.track.entities.Pessoa;
+
+public class UsuarioDAO extends Pessoa{
 	
 	private Long codigo;
 	private String senha;
 	private Integer metaKcal;
 	private Integer metaTempo;
 	
-	public Usuario() {
-		
+	public UsuarioDAO(Long codigo, String senha, Integer metaKcal, Integer metaTempo) {
+		this.codigo = codigo;
+		this.senha = senha;
+		this.metaKcal = metaKcal;
+		this.metaTempo = metaTempo;
 	}
 	
-	public Usuario(Long codigo, String senha, Integer metaKcal, Integer metaTempo) {
-		this.codigo = codigo;
+	public UsuarioDAO(String senha, Integer metaKcal, Integer metaTempo) {
 		this.senha = senha;
 		this.metaKcal = metaKcal;
 		this.metaTempo = metaTempo;
@@ -43,7 +47,4 @@ public class Usuario extends Pessoa{
 		this.metaTempo = metaTempo;
 	}
 
-	
-	
-	
 }

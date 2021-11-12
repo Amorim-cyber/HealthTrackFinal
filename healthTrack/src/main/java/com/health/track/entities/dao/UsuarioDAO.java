@@ -9,6 +9,10 @@ public class UsuarioDAO extends Pessoa{
 	private Integer metaKcal;
 	private Integer metaTempo;
 	
+	public UsuarioDAO() {
+		
+	}
+	
 	public UsuarioDAO(Long codigo, String senha, Integer metaKcal, Integer metaTempo) {
 		this.codigo = codigo;
 		this.senha = senha;
