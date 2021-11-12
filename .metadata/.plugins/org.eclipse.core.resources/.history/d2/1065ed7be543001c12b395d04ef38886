@@ -3,7 +3,9 @@ package com.health.track.mappers;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.health.track.entities.Peso;
 import com.health.track.entities.Pressao;
+import com.health.track.entities.dao.PesoDAO;
 import com.health.track.entities.dao.PressaoDAO;
 
 public class PressaoMapper {

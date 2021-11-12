@@ -8,6 +8,6 @@ public interface UsuarioInterface {
 
 	public abstract void setUsuario(UsuarioDAO dao);
 	
-	public abstract void deleteUsuario(Long codigoUsuario);
+	public abstract void deleteUsuario(Integer cpf,String senha);
 	
 }

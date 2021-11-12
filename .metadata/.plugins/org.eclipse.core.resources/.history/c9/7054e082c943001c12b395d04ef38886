@@ -20,7 +20,7 @@ public class UsuarioMapper {
 		usuario.setMetaTempo(dao.getMetaTempo());
 		usuario.setNome(dao.getNome());
 		usuario.setSenha(dao.getSenha());
-		usuario.setListaAtividade(dao.getListaAtividade());
+		
 		return usuario;
 		
 	}
@@ -41,7 +41,7 @@ public class UsuarioMapper {
 		dao.setMetaTempo(usuario.getMetaTempo());
 		dao.setNome(usuario.getNome());
 		dao.setSenha(usuario.getSenha());
-		dao.setListaAtividade(usuario.getListaAtividade());
+		
 		return dao;
 		
 	}

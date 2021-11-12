@@ -1,8 +1,5 @@
 package com.health.track.mappers;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import com.health.track.entities.Atividade;
 import com.health.track.entities.dao.AtividadeDAO;
 
@@ -21,10 +18,6 @@ public class AtividadeMapper {
 		
 	}
 	
-	public static List<Atividade> toEntity(List<AtividadeDAO> dao){
-		return dao.stream().map(x->AtividadeMapper.toEntity(x)).collect(Collectors.toList());
-	}
-	
 	public static AtividadeDAO toDAO(Atividade atividade) {
 		AtividadeDAO dao = new AtividadeDAO();
 			dao.setCodigo(atividade.getCodigo());
@@ -36,10 +29,6 @@ public class AtividadeMapper {
 			
 		return dao;
 		
-	}
-	
-	public static List<AtividadeDAO> toDAO(List<Atividade> atividade){
-		return atividade.stream().map(x->AtividadeMapper.toDAO(x)).collect(Collectors.toList());
 	}
 
 }
