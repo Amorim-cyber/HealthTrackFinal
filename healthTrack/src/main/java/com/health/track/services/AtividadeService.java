@@ -28,7 +28,7 @@ public class AtividadeService implements AtividadeInterface{
 		try {
 			conexao= DBManager.obterConexao();
 			stmt= conexao.prepareStatement("SELECT * FROM T_ACTIVITY "+
-			"T_USER_CD_USER=? ORDER BY DT_A_REGISTER DESC");
+			"WHERE T_USER_CD_USER=? ORDER BY DT_A_REGISTER DESC");
 			
 			stmt.setLong(1, codigoUsuario);
 			

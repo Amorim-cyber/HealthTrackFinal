@@ -4,7 +4,7 @@ import com.health.track.entities.dao.UsuarioDAO;
 
 public interface UsuarioInterface {
 	
-	public abstract UsuarioDAO getUsuario(Integer cpf,String senha);
+	public abstract UsuarioDAO getUsuario(Long cpf,String senha);
 
 	public abstract void setUsuario(UsuarioDAO dao);
 	

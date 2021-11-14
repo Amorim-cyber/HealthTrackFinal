@@ -22,10 +22,13 @@ public class UsuarioService implements UsuarioInterface{
 	private PressaoService prs = new PressaoService();
 
 	@Override
-	public UsuarioDAO getUsuario(Integer cpf, String senha) {
+	public UsuarioDAO getUsuario(Long cpf, String senha) {
 		PreparedStatement stmt= null;
 		ResultSet rs= null;
 		Usuario usuario = null;
+		
+		System.out.println(cpf);
+		System.out.println(senha);
 		
 		try {
 			conexao= DBManager.obterConexao();
@@ -38,8 +41,8 @@ public class UsuarioService implements UsuarioInterface{
 			" WHERE P.NR_CPF = ?"+
 			" AND U.DS_PASSWORD = ?");
 			
-			stmt.setInt(1, cpf);
-			stmt.setString(1, senha);
+			stmt.setLong(1, cpf);
+			stmt.setString(2, senha);
 			
 			rs= stmt.executeQuery();
 			
@@ -50,7 +53,7 @@ public class UsuarioService implements UsuarioInterface{
 				Integer metaTempo = rs.getInt("NR_META_T");
 				Long cdUsuarioFK = rs.getLong("T_USER_CD_USER");
 				String nomePessoa = rs.getString("NM_PERSON");
-				Integer cpfUsuario = rs.getInt("NR_CPF");
+				Long cpfUsuario = rs.getLong("NR_CPF");
 				String email = rs.getString("DS_EMAIL");
 				Double altura = rs.getDouble("NR_HEIGHT");
 				

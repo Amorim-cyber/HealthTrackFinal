@@ -7,7 +7,7 @@ public class Pessoa {
 	private Long codigo;
 	private Long codigoUsuario;
 	private String nome;
-	private Integer cpf;
+	private Long cpf;
 	private String email;
 	private Double altura;
 	private List<Peso> listaPeso;
@@ -18,7 +18,7 @@ public class Pessoa {
 	}
 	
 
-	public Pessoa(Long codigo, Long codigoUsuario, String nome, Integer cpf, String email, Double altura,
+	public Pessoa(Long codigo, Long codigoUsuario, String nome, Long cpf, String email, Double altura,
 			List<Peso> listaPeso, List<Pressao> listaPressao) {
 		this.codigo = codigo;
 		this.codigoUsuario = codigoUsuario;
@@ -48,10 +48,10 @@ public class Pessoa {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Integer getCpf() {
+	public Long getCpf() {
 		return cpf;
 	}
-	public void setCpf(Integer cpf) {
+	public void setCpf(Long cpf) {
 		this.cpf = cpf;
 	}
 	public String getEmail() {
