@@ -1,0 +1,277 @@
+html, body, .main {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: #1E1F21;
+    font-family:'Comfortaa';
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.main{
+    height: 100%;
+    width: 100%;
+}
+
+.nav{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav a{
+    padding-left: 50px;
+    padding-top: 25px;
+}
+
+.nav i{
+    color: #C4C4C4;
+    font-size: 32px;
+}
+
+.nav .img{
+    padding-right: 50px;
+    padding-top: 25px;
+    
+}
+
+.nav .img img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+
+.dash{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.cartao{
+    width: 60%;
+    display:flex;
+    flex-direction: column;
+}
+
+.cartao label{
+    color: #FFBF00;
+    font-size: 32px;
+}
+
+.info{
+    margin-top: 50px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.info label{
+    margin-left:5px;
+    margin-bottom: 5px;
+    color: white;
+    font-size: 30px;
+}
+
+.diario{
+    display:flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.cartao .cinza{
+    background-color: #3B3B3B;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.head{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.head div{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.head img{
+    width: 60px;
+    height: 60px;
+}
+
+.head #cardio{
+    margin-top: 9px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    margin-left: 14px;
+    width: 45px;
+    height: 35px;
+}
+
+.head span{
+    color:#BF0413;
+}
+
+.head i{
+    color:#CECECE;
+    font-size: 12px;
+}
+
+.details{
+    display:flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+}
+
+.item{
+    display:flex;
+    flex-direction: column;
+    font-size: 12px;
+    color:#CECECE;
+    padding-right: 20px;
+    margin-left: 10px;
+}
+
+.item small{
+    font-size:7px;
+}
+
+#gasto, #tempo{
+    border-right: solid #CECECE 1px;
+}
+
+.footer{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.footer .item{
+    align-items: center;
+    padding: 0;
+}
+
+.footer span{
+    margin-top: 3px;
+    font-size:7px;
+}
+
+.circle{
+    width: 30px;
+    height: 30px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 30px;
+    background-color: black;
+    font-size: 8px;
+}
+
+#statuspressao{
+    background-color: #3EB34A;
+    font-size: 15px;
+}
+
+.evolucao{
+    display:flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+}
+
+.evolucao span{
+    color: #CECECE;
+}
+
+.evolucao .graph{
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+}
+
+.evolucao .graph .bars{
+    width:100%;
+    height:92%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.evolucao .graph .bars .bar{
+    width:8%;
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    font-size:0.875rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.evolucao .graph .bars .bar span{
+    margin-bottom:0.625rem;
+}
+
+.evolucao .graph .bars .bar #bar1{
+    width:100%;
+    margin-bottom:0.625rem;
+    background-color: #FFBF00;
+    
+    box-shadow: 0 0.0625rem 0.1875rem rgba(0,0,0,0.12), 0 0.0625rem 0.125rem rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.evolucao .graph .bars .bar #bar1:hover{
+    box-shadow: 0 0.875rem 1.75rem rgba(0,0,0,0.25), 0 0.0625rem 0.125rem rgba(0,0,0,0.22);
+}
+
+.evolucao .graph .bars .bar #bar2{
+    width:100%;
+    margin-bottom:0.625rem;
+    background-color: #FFBF00;
+    box-shadow: 0 0.0625rem 0.1875rem rgba(0,0,0,0.12), 0 0.0625rem 0.125rem rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.evolucao .graph .bars .bar #bar2:hover{
+    box-shadow: 0 0.875rem 1.75rem rgba(0,0,0,0.25), 0 0.0625rem 0.125rem rgba(0,0,0,0.22);
+}
+
+.evolucao .graph .bars .bar #bar3{
+    width:100%;
+    margin-bottom:0.625rem;
+    background-color: #FFBF00;
+
+    box-shadow: 0 0.0625rem 0.1875rem rgba(0,0,0,0.12), 0 0.0625rem 0.125rem rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.evolucao .graph .bars .bar #bar3:hover{
+    box-shadow: 0 0.875rem 1.75rem rgba(0,0,0,0.25), 0 0.0625rem 0.125rem rgba(0,0,0,0.22);
+}
+
+.evolucao .graph .dates{
+    width:100%;
+    height:8%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size:0.75rem;
+    font-weight: 500;
+    color: var(--text-color);
+    border-top: solid var(--primary-color) 0.1875rem;
+}

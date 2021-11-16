@@ -1,0 +1,89 @@
+.offcanvas-header{
+    background-color: #FFBF00;
+    border-bottom: solid var(--text-color) 0.125rem;
+    padding-left: 0;
+}
+.offcanvas-body{
+    padding:0;
+}
+
+
+.offcanvas-header header{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #FFBF00;
+    font-weight: 500;
+    height: 100%;
+    box-shadow: none;
+}
+
+.offcanvas-header header .circle{
+    margin-right: 0.625rem;
+    margin-left: 0.625rem;
+    width: 2.8125rem;
+    height: 2.8125rem;
+    border-radius: 2.8125rem;
+    
+}
+
+.offcanvas-body .content{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #FFBF00;
+    color: var(--text-color);
+    height:100%;
+}
+
+.offcanvas-body .content a{
+    text-decoration: none;
+    margin-top:1.25rem;
+    width:13.75rem;
+    height: 3.125rem;
+}
+
+.offcanvas-body .content a button{
+    width:100%;
+    height: 100%;
+    padding:0;
+    border:none;
+    display:flex;
+    align-items: center;
+    flex-direction: row;
+    transition: none;
+    background-color: transparent;
+}
+
+.offcanvas-body .content button:hover{
+    border:solid transparent 0.0625rem;
+}
+
+.offcanvas-body .content button span{
+    font-weight: 600;
+}
+
+.offcanvas-body .content button .icon{
+    margin-right: 0.625rem;
+    margin-left: 0.625rem;
+    width: 2.1875rem;
+    height: 2.1875rem;
+    border-radius: 2.1875rem;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #3B3B3B;
+    color: #FFBF00;
+    box-shadow: 0 0.0625rem 0.1875rem rgba(0,0,0,0.12), 0 0.0625rem 0.125rem rgba(0,0,0,0.24);
+}
+
+@media screen and (max-width:415px){
+    .offcanvas-header header .circle{
+        width: 35px;
+        height: 35px;
+        border-radius: 35px;
+        font-size: 16px;
+    }
+}
