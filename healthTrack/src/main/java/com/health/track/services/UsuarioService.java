@@ -26,9 +26,7 @@ public class UsuarioService implements UsuarioInterface{
 		PreparedStatement stmt= null;
 		ResultSet rs= null;
 		Usuario usuario = null;
-		
-		System.out.println(cpf);
-		System.out.println(senha);
+		int count = 0;
 		
 		try {
 			conexao= DBManager.obterConexao();
@@ -67,7 +65,7 @@ public class UsuarioService implements UsuarioInterface{
 				usuario.setAltura(altura);
 				usuario.setListaPeso(PesoMapper.toEntity(ps.getPeso(cdUsuarioFK)));
 				usuario.setListaPressao(PressaoMapper.toEntity(prs.getPressao(cdUsuarioFK)));
-								
+				count++;	
 			}
 			
 		} catch (SQLException e) {
@@ -82,6 +80,7 @@ public class UsuarioService implements UsuarioInterface{
 			}
 		}
 		
+		if(count==0) return null;
 		
 		return UsuarioMapper.toDAO(usuario);
 	}
@@ -106,6 +105,7 @@ public class UsuarioService implements UsuarioInterface{
 				stmt.setInt(2, usuario.getMetaKcal());
 				stmt.setInt(3, usuario.getMetaTempo());
 				
+				stmt.executeUpdate();
 				
 				
 			}else {
@@ -119,9 +119,10 @@ public class UsuarioService implements UsuarioInterface{
 				stmt.setInt(2, usuario.getMetaKcal());
 				stmt.setInt(3, usuario.getMetaTempo());
 				stmt.setLong(4, usuario.getCodigo());
+				
+				stmt.executeUpdate();
+				
 			}
-			
-			stmt.executeUpdate();	
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -135,6 +136,38 @@ public class UsuarioService implements UsuarioInterface{
 			}
 		}
 		
+		if(usuario.getCodigo()==null) {
+			try {
+				conexao= DBManager.obterConexao();
+				
+				String sql;
+				
+				
+					
+					sql = "INSERT INTO  t_person (cd_person, t_user_cd_user, nm_person, nr_cpf, ds_email, NR_HEIGHT) "
+							+ "VALUES (person_seq.NEXTVAL," +
+							"(SELECT CD_USER FROM T_USER WHERE DS_PASSWORD=?),?,?,?,null)";
+					
+					stmt= conexao.prepareStatement(sql);
+					stmt.setString(1, usuario.getSenha());
+					stmt.setString(2, usuario.getNome());
+					stmt.setLong(3, usuario.getCpf());
+					stmt.setString(4, usuario.getEmail());
+					stmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally{
+				try{
+					stmt.close();
+					conexao.close();
+				} catch(SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+				
 	}
 
 	@Override

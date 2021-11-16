@@ -1,0 +1,234 @@
+@import "../resources/css/bootstrap.min.css";
+@import "../resources/css/bootstrap-icons-1.5.0/bootstrap-icons.css";
+
+.form .buttons{
+    margin-left: 250px; 
+    color:#FFBF00;
+
+}
+
+html, body, .main {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: #1E1F21;
+    font-family:'Comfortaa';
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.main{
+    height: 100%;
+    width: 100%;
+}
+
+.top{
+    height: 25%;
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.circleRight{
+    height: 100%;
+    width: 15%;
+    border-radius: 0px 0px 0px 750px;
+    background-color: #FFBF00;
+}
+
+.middle{
+    height: 45%;
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.form .title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: #FFBF00;
+    font-size: 50px;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.form label{
+    display:flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    color: #C4C4C4;
+    margin-right: 60px;
+    
+}
+
+.form input{
+    margin-bottom: 20px;
+    background-color: #C4C4C4;
+}
+
+.form .buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.form .buttons button{
+    margin-top: 10px;
+    color: black;
+    width:180px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #FFBF00;
+    border: solid 2px #FFBF00;
+}
+
+.form span{
+    margin-top: 5px;
+    color: #FFBF00;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 9.5px;
+}
+
+.bottom{
+    height: 30%;
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.circleLeft{
+    height: 100%;
+    width: 17%;
+    border-radius: 0px 750px 0px 0px;
+    background-color: #FFBF00;
+}
+
+@media screen and (max-width:1116px){
+
+    .circleRight{
+        width: 18%;
+    }
+
+    .circleLeft{
+        width: 20%;
+    }
+
+}
+
+@media screen and (max-width:930px){
+
+    .circleRight{
+        width: 21%;
+    }
+
+    .circleLeft{
+        width: 23%;
+    }
+
+}
+
+@media screen and (max-width:800px){
+
+    .circleRight{
+        width: 24%;
+    }
+
+    .circleLeft{
+        width: 27%;
+    }
+
+    .form .title{
+        font-size: 40px;
+    }
+
+}
+
+@media screen and (max-width:740px){
+
+    .circleRight{
+        width: 27%;
+    }
+
+    .circleLeft{
+        width: 30%;
+    }
+
+    .form .title{
+        font-size: 40px;
+    }
+
+}
+
+@media screen and (max-width:625px){
+
+    .circleRight{
+        width: 30%;
+    }
+
+    .circleLeft{
+        width: 33%;
+    }
+
+    .form .title{
+        font-size: 30px;
+    }
+
+}
+
+@media screen and (max-width:560px){
+
+    .circleRight{
+        width: 33%;
+    }
+
+    .circleLeft{
+        width: 36%;
+    }
+
+    .form .title{
+        font-size: 30px;
+    }
+
+}
+
+@media screen and (max-width:465px){
+
+    .circleRight{
+        width: 36%;
+    }
+
+    .circleLeft{
+        width: 39%;
+    }
+
+    .form .title{
+        font-size: 25px;
+    }
+
+}
+
+@media screen and (max-width:415px){
+
+    .circleRight{
+        width: 39%;
+    }
+
+    .circleLeft{
+        width: 41%;
+    }
+
+    .form .title{
+        font-size: 25px;
+    }
+
+}

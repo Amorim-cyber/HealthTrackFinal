@@ -9,7 +9,8 @@ public class UsuarioMapper {
 		
 		Usuario usuario = new Usuario();
 		
-		usuario.setCodigo(dao.getCodigo());
+		if(dao.getCodigo()!=null)
+			usuario.setCodigo(dao.getCodigo());
 		usuario.setCodigoUsuario(dao.getCodigoUsuario());
 		usuario.setAltura(dao.getAltura());
 		usuario.setCpf(dao.getCpf());
@@ -30,7 +31,8 @@ public class UsuarioMapper {
 		
 		UsuarioDAO dao = new UsuarioDAO();
 		
-		dao.setCodigo(usuario.getCodigo());
+		if(usuario.getCodigo()!=null)
+			dao.setCodigo(usuario.getCodigo());
 		dao.setCodigoUsuario(usuario.getCodigoUsuario());
 		dao.setAltura(usuario.getAltura());
 		dao.setCpf(usuario.getCpf());

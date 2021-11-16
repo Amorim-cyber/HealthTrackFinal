@@ -29,4 +29,5 @@
     <fullyQualifiedTypeName name="com.health.track.mappers.UsuarioMapper"/>
     <fullyQualifiedTypeName name="com.health.track.services.UsuarioService"/>
     <fullyQualifiedTypeName name="com.health.track.entities.dao.UsuarioDAO"/>
+    <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 </qualifiedTypeNameHistroy>

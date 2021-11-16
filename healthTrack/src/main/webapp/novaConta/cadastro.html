@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+    <link rel="stylesheet" href="cadastro.css">
+    <title>Cadastro</title>
+</head>
+<body>
+    <form class="main" action="http://localhost:8083/healthTrack/dashboard" method="post">
+        <div class="top">
+            <div class="circleRight">
+
+            </div>
+        </div>
+        <div class="middle" >
+            <ul class="nav nav-tabs" id="myTab" role="tablist" style="display:none;">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="passo1-tab" data-bs-toggle="tab" data-bs-target="#passo1" type="button" role="tab" aria-controls="passo1" aria-selected="true">(1)</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="passo2-tab" data-bs-toggle="tab" data-bs-target="#passo2" type="button" role="tab" aria-controls="passo2" aria-selected="false">(2)</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="passo3-tab" data-bs-toggle="tab" data-bs-target="#passo3" type="button" role="tab" aria-controls="passo3" aria-selected="false">(3)</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="passo4-tab" data-bs-toggle="tab" data-bs-target="#passo4" type="button" role="tab" aria-controls="passo4" aria-selected="false">(4)</button>
+                  </li>
+            </ul>
+
+            <div class="tab-content" id="myTabContent">
+
+                <div class="tab-pane fade show active form" id="passo1" role="tabpanel" aria-labelledby="passo1-tab">
+                    <div class="title">
+                       Vamos Começar!
+                    </div>
+                    <div class="login">
+                        <label> Primeiro, nos conte seu nome (completo, tá?) </label>
+    
+                        <input name="nome" class="form-control" type="text" placeholder="seu nome aqui">
+    
+                    </div>
+                    <div class="buttons">
+                        <button id="next1" type="button" onclick="passo2();">
+                            PRÓXIMO
+                        </button>
+                    </div>
+                </div>
+    
+                <div class="tab-pane fade form" id="passo2" role="tabpanel" aria-labelledby="passo2-tab">
+                    <div class="title mb-5">
+                       Cadastro 2 de 4!
+                    </div> 
+                    <div class="login">
+                        <label> E, qual seu email? </label>
+    
+                        <input name="email" class="form-control" type="email" placeholder="seu email aqui">
+    
+                    </div>
+                    <div class="buttons">
+                        <button id="next2" type="button" onclick="passo3();">
+                            PRÓXIMO
+                        </button>
+                    </div>
+                </div>
+    
+                <div class="tab-pane fade form" id="passo3" role="tabpanel" aria-labelledby="passo3-tab">
+                    <div class="title mb-5">
+                       Cadastro 3 de 4!
+                    </div>
+                    <div class="login">
+                        <label> Digite o seu cpf (sem pontuação) </label>
+    
+                        <input name="cpf" class="form-control" type="text" placeholder="seu cpf sem pontuação">
+    
+                    </div>
+                    <div class="buttons">
+                        <button id="next3" type="button" onclick="passo4();">
+                            PRÓXIMO
+                        </button>
+                    </div>
+                </div>
+    
+                <div class="tab-pane fade form" id="passo4" role="tabpanel" aria-labelledby="passo4-tab">
+                    <div class="title mb-5">
+                       Cadastro 4 de 4!
+                    </div>
+                    <div class="login">
+                        <label> Agora, crie uma senha de acesso </label>
+    
+                        <input name="password" class="form-control" type="password" placeholder="********">
+    
+                        <label> Confirma pra nós essa senha :) </label>
+    
+                        <input name="password2" class="form-control" type="password" placeholder="********">
+    
+                    </div>
+                    <div class="buttons">
+                        <button type="submit">CADASTRAR</button>
+                    </div>
+                </div>
+
+                
+            </div>
+
+
+            
+        </div>
+        <div class="bottom">
+            <div class="circleLeft">
+
+            </div>
+        </div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+
+        function passo2(){
+        	document.getElementById('passo2-tab').click();
+        }
+
+        function passo3(){
+            document.getElementById('passo3-tab').click();
+        }
+
+        function passo4(){
+            document.getElementById('passo4-tab').click();
+        }
+
+    </script>
+</body>
+</html>
