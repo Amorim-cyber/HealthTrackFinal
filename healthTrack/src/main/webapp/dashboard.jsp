@@ -6,18 +6,6 @@ import="com.health.track.entities.dao.UsuarioDAO" import="com.health.track.entit
 
 Object usuario = request.getAttribute("usuario");
 
-UsuarioDAO usuarioDAO = (UsuarioDAO) usuario;
-
-Peso peso1 = null;
-Peso peso2 = null;
-
-Double diff = 0D;
-
-if(usuarioDAO.getListaPeso().size()>=3){
-	peso1 = (Peso) usuarioDAO.getListaPeso().get(0);
-	peso2 = (Peso) usuarioDAO.getListaPeso().get(2);
-	diff = peso1.getValor() - peso2.getValor();
-}
 
 %>
 
@@ -184,7 +172,7 @@ if(usuarioDAO.getListaPeso().size()>=3){
                         <span>Editar pesos</span>
                     </button>
                 </a>
-                <a href="#">
+                <a href="http://localhost:8083/healthTrack/login/login.html">
                     <button>
                         <div class="icon">
                             <i class="bi bi-door-open-fill"></i>

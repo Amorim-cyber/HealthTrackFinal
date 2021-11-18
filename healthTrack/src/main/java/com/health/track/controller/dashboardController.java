@@ -31,12 +31,13 @@ public class dashboardController extends HttpServlet {
 		boolean erro = false;
 		String page = request.getHeader("referer").substring(request.getHeader("referer").lastIndexOf("/")+1);
 		Long cpf = 0L;
-		if(!request.getParameter("cpf").equals("")) {
-			cpf = Long.parseLong(request.getParameter("cpf"));
-		}
 		String senha = request.getParameter("password");
 		String mgs = "";
 		if(page.equals("login.html")) {
+			
+			if(!request.getParameter("cpf").equals("")) {
+				cpf = Long.parseLong(request.getParameter("cpf"));
+			}
 			
 			UsuarioDAO usuarioDAO =  usuarioService.getUsuario(cpf, senha);
 			request.setAttribute("usuario", usuarioDAO);
@@ -58,7 +59,40 @@ public class dashboardController extends HttpServlet {
 				request.getRequestDispatcher("dashboard.jsp").forward(request, response);
 			}
 			
+		}else if(page.equals("recuperarSenha")){
+			String email = request.getParameter("email");
+			String senha2 = request.getParameter("password2");
+			UsuarioDAO usuarioDAO = usuarioService.getUsuario(email);
+			
+			if(!senha.equals(senha2)) {
+				mgs = "Senha divergente da senha de confirmação";
+				request.setAttribute("mgs", mgs);
+				erro =true;
+			}else if(senha.equals("") || senha2.equals("")) {
+						mgs = "Campos não foram preenchidos";
+						request.setAttribute("mgs", mgs);
+						erro =true;
+			}
+			
+			if(erro) {
+				request.getRequestDispatcher("erro.jsp").forward(request, response);
+				
+			}else {
+				usuarioDAO.setSenha(senha);
+				usuarioService.setUsuario(usuarioDAO);
+				request.setAttribute("usuario", usuarioDAO);
+				
+				request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+				
+			}
+			
+			
 		}else {
+			
+			if(!request.getParameter("cpf").equals("")) {
+				cpf = Long.parseLong(request.getParameter("cpf"));
+			}
+			
 			String nome = request.getParameter("nome");
 			String email = request.getParameter("email");
 			String senha2 = request.getParameter("password2");
