@@ -1,5 +1,6 @@
 package com.health.track.entities;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Atividade {
@@ -61,6 +62,11 @@ public class Atividade {
 
 	public Calendar getData() {
 		return data;
+	}
+	
+	public String getTime() {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+		return sdf.format(data.getTime());
 	}
 
 	public void setData(Calendar data) {

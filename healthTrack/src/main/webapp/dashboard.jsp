@@ -44,8 +44,11 @@ Object usuario = request.getAttribute("usuario");
                                     <img src="./resources/img/fogo.png">
                                     <span>Atividade</span>
                                 </div>
-                                
+                                <a data-bs-toggle="modal" data-bs-target="#editarAtividade">
+                                <button>
                                 <i class="bi bi-pencil"></i>
+                                </button>
+                                </a>
                             </div>
                             <div class="details">
                                 <div id="gasto" class="item">
@@ -183,7 +186,65 @@ Object usuario = request.getAttribute("usuario");
             </div>
         </div>
     </div>
-
+    
+    <div class="modal fade" id="editarAtividade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg modal-dialog-centered">
+          <div class="modal-content">
+          	<div class="modal-header">
+		        <h5 class="modal-title" id="staticBackdropLabel">Editar Atividade</h5>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+            <div class="modal-body">
+            	<button style="margin-bottom:20px;" type="button" data-bs-toggle="collapse" data-bs-target="#novo" aria-expanded="false" aria-controls="collapseExample">
+				    Cadastrar nova atividade
+				</button>
+				
+				<div class="collapse" id="novo" style="margin-bottom:20px;">
+				  <div class="card card-body">
+				    <input id="novoKcal" style="margin-bottom:10px;" class="form-control" name="kcal" type="number" placeholder="gasto (kcal) da atividade">
+				    <input id="novoTempo" style="margin-bottom:10px;" class="form-control" name="tempo" type="number" placeholder="duração da atividade">
+				    <input id="novoDescanso" style="margin-bottom:10px;" class="form-control" name="descanso" type="number" placeholder="tempo de descanso">
+				    <button class="btn btn-primary" onclick="insert();">Cadastrar</button>
+				  </div>
+				</div>
+				
+				
+                <div class="table">
+		            <div class="head">
+		                <span>DATA</span>
+		                <span>GASTO</span>
+		                <span>TEMPO</span>
+		                <span>REPOUSO</span>
+		                <span>EDIÇÃO</span>
+		            </div>
+		            <c:forEach var="atividade" items="${usuario.getListaAtividade()}">
+            			<div class="row">
+			                <span>${atividade.getTime()}</span>
+			                <span>${atividade.getKcal()} kcal</span>
+			                <span>${atividade.getTempo()} min</span>
+			                <span>${atividade.getDescanso()} min</span>
+			                <div>
+			                        <button>
+			                            <i class="bi bi-pencil"></i>
+			                        </button>
+			                        <button>
+			                            <i class="bi bi-trash-fill"></i>
+			                        </button>
+			                </div>
+		            	</div>
+            		</c:forEach>
+		            
+		        </div>
+            </div>
+            <div class="modal-footer">
+                <div class="buttons">
+                        <button type="button" data-bs-dismiss="modal" aria-label="Close">Voltar</button>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+	<script src="./resources/js/insert.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
