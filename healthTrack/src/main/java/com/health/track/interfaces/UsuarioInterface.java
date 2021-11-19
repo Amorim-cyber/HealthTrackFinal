@@ -7,6 +7,8 @@ public interface UsuarioInterface {
 	public abstract UsuarioDAO getUsuario(Long cpf,String senha);
 	
 	public abstract UsuarioDAO getUsuario(String email);
+	
+	public abstract UsuarioDAO getUsuario(Long codigo);
 
 	public abstract void setUsuario(UsuarioDAO dao);
 	

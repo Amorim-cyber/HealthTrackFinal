@@ -94,19 +94,15 @@ public class AtividadeService implements AtividadeInterface{
 			}else {
 				sql = "UPDATE T_ACTIVITY SET NR_KCAL=?,"+
 						" NR_TIME=?,"+
-						" NR_REST=?,"+
-						" DT_A_REGISTER=?,"+
+						" NR_REST=?" +
 						" WHERE CD_ACTIVITY=? AND T_USER_CD_USER=?";
 				
 				stmt= conexao.prepareStatement(sql);
 				stmt.setDouble(1, atividade.getKcal());
 				stmt.setDouble(2, atividade.getTempo());
 				stmt.setDouble(3, atividade.getDescanso());
-				Date data = new Date(atividade.getData().getTimeInMillis());
-
-				stmt.setDate(4, data);
-				stmt.setLong(5, atividade.getCodigo());
-				stmt.setLong(6, atividade.getCodigoUsuario());
+				stmt.setLong(4, atividade.getCodigo());
+				stmt.setLong(5, atividade.getCodigoUsuario());
 			}
 			
 			stmt.executeUpdate();	

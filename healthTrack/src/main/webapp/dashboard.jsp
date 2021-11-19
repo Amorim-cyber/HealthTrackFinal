@@ -1,11 +1,79 @@
 <%@   page   language="java"   contentType="text/html; charset=UTF-8"
-import="com.health.track.entities.dao.UsuarioDAO" import="com.health.track.entities.Peso" pageEncoding="UTF-8"%>
+import="com.health.track.entities.dao.UsuarioDAO" import="com.health.track.entities.Peso" 
+import="com.health.track.entities.dao.AtividadeDAO"
+import="com.health.track.services.AtividadeService"
+import="com.health.track.services.UsuarioService"
+import="java.util.Calendar"
+pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%
 
 Object usuario = request.getAttribute("usuario");
 
+AtividadeService atividadeService = new AtividadeService();
+UsuarioService usuarioService = new UsuarioService();
+
+if(usuario==null){
+	
+	String[] kcal = request.getParameterValues("kcal");
+	String[] tempo = request.getParameterValues("tempo");
+	String[] descanso = request.getParameterValues("descanso");
+	String[] codigoAtividade = request.getParameterValues("codigoAtividade");
+	String[] deletar = request.getParameterValues("deletar");
+
+	String codigoUsuario = request.getParameter("codigoUsuario");
+
+	if(kcal.length>0) {
+		
+		AtividadeDAO atividadeDAO = null;
+		
+		for(int i = 0;i<kcal.length;i++){
+			
+			if(codigoAtividade[i].equals("")){
+				
+				atividadeDAO = new AtividadeDAO(
+						Double.parseDouble(kcal[i]),
+						Double.parseDouble(tempo[i]),
+						Double.parseDouble(descanso[i]),
+						Calendar.getInstance(),
+						Long.parseLong(codigoUsuario)
+						); 
+				if(deletar[i].equals("s")){
+					continue;
+				}else{
+					atividadeService.setAtividade(atividadeDAO);
+				}
+			}else{
+				
+				atividadeDAO = new AtividadeDAO(
+						Long.parseLong(codigoAtividade[i]),
+						Double.parseDouble(kcal[i]),
+						Double.parseDouble(tempo[i]),
+						Double.parseDouble(descanso[i]),
+						Calendar.getInstance(),
+						Long.parseLong(codigoUsuario)
+						); 
+				
+				if(deletar[i].equals("s")){
+					atividadeService.deleteAtividade(
+							Long.parseLong(codigoUsuario),
+							Long.parseLong(codigoAtividade[i]));
+				}else{
+					atividadeService.setAtividade(atividadeDAO);
+				}
+				
+				
+			}
+			
+			
+			
+		}
+
+	}
+	request.setAttribute("usuario",usuarioService.getUsuario(Long.parseLong(codigoUsuario)));
+	request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+}
 
 %>
 
@@ -102,7 +170,7 @@ Object usuario = request.getAttribute("usuario");
                                     class="circle" id="statuspressao">
                                         <i class="${usuario.getListaPressao().size()==0? 'bi bi-dash-lg' :'bi bi-hand-thumbs-up'}"></i>
                                     </div>
-                                    <span>${usuario.getListaPressao().size()==0? Neutro:Ótimo}</span>
+                                    <span>${usuario.getListaPressao().size()==0? "Neutro":"Ótimo"}</span>
                                 </div>
                             </div>    
                         </div>
@@ -188,63 +256,95 @@ Object usuario = request.getAttribute("usuario");
     </div>
     
     <div class="modal fade" id="editarAtividade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-lg modal-dialog-centered">
-          <div class="modal-content">
-          	<div class="modal-header">
-		        <h5 class="modal-title" id="staticBackdropLabel">Editar Atividade</h5>
-		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		      </div>
-            <div class="modal-body">
-            	<button style="margin-bottom:20px;" type="button" data-bs-toggle="collapse" data-bs-target="#novo" aria-expanded="false" aria-controls="collapseExample">
-				    Cadastrar nova atividade
-				</button>
+        
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+	          
+	        <div class="modal-content">
+	          	<form action="dashboard.jsp" method="post">
+	          	
+	          		<div class="modal-header">
+					<h5 class="modal-title" id="staticBackdropLabel">Editar
+							Atividade</h5>
+					</div>
+					<div class="modal-body">
+						<button style="margin-bottom: 20px;" type="button"
+							data-bs-toggle="collapse" data-bs-target="#novo"
+							aria-expanded="false" aria-controls="collapseExample">
+							Clique aqui para adicionar nova atividade</button>
+	
+						<div class="collapse" id="novo" style="margin-bottom: 20px;">
+	
+							<div class="card card-body">
+								<input id="novoKcal" style="margin-bottom: 10px;"
+									class="form-control" type="number"
+									placeholder="gasto (kcal) da atividade"> <input
+									id="novoTempo" style="margin-bottom: 10px;" class="form-control"
+									type="number" placeholder="duração (min) da atividade"> <input
+									id="novoDescanso" style="margin-bottom: 10px;"
+									class="form-control" type="number"
+									placeholder="tempo (min) de descanso">
+								<button type="button" class="btn btn-primary"
+									onclick="insertAtividade();">Adicionar</button>
+							</div>
+	
+						</div>
+						<input style="display: none;" name="codigoUsuario"
+							class="form-control" value="${usuario.getCodigo()}">
+	
+						<div class="table">
+							<div class="head">
+								<span>DATA</span> <span>GASTO (KCAL)</span> <span>TEMPO
+									(MIN)</span> <span>REPOUSO (MIN)</span> <span>EDIÇÃO</span>
+							</div>
+							<c:set var="trashIndex" value="0"/>
+							<c:forEach var="atividade" items="${usuario.getListaAtividade()}">
+								<div class="row" style="">
+									<span>${atividade.getTime()}</span> 
+									<input
+										style="display: none;" name="codigoAtividade"
+										class="form-control" value="${atividade.getCodigo()}">
+									<input name="kcal" class="form-control"
+										value="${atividade.getKcal()}"> 
+									
+									<input name="tempo"
+										class="form-control" value="${atividade.getTempo()}"> 
+										
+									<input
+										name="descanso" class="form-control"
+										value="${atividade.getDescanso()}"> 
+									<input
+										style="display: none;" name="deletar" class="form-control"
+										value="n">
+									<div>
+										<button type="button" value="${trashIndex}" onclick="delAtividade(this.value);">
+											<i class="bi bi-trash-fill"></i>
+										</button>
+									</div>
+								</div>
+								<c:set var="trashIndex" value="${Integer.parseInt(trashIndex)+1}"/>
+							</c:forEach>
+	
+						</div>
+					</div>
+					<div class="modal-footer">
+						<div class="buttons">
+							<button type="submit" data-bs-dismiss="modal" aria-label="Close">Fechar
+								e salvar</button>
+						</div>
+					</div>
+	          	
+	          	
+	          	</form>
+
 				
-				<div class="collapse" id="novo" style="margin-bottom:20px;">
-				  <div class="card card-body">
-				    <input id="novoKcal" style="margin-bottom:10px;" class="form-control" name="kcal" type="number" placeholder="gasto (kcal) da atividade">
-				    <input id="novoTempo" style="margin-bottom:10px;" class="form-control" name="tempo" type="number" placeholder="duração da atividade">
-				    <input id="novoDescanso" style="margin-bottom:10px;" class="form-control" name="descanso" type="number" placeholder="tempo de descanso">
-				    <button class="btn btn-primary" onclick="insert();">Cadastrar</button>
-				  </div>
-				</div>
-				
-				
-                <div class="table">
-		            <div class="head">
-		                <span>DATA</span>
-		                <span>GASTO</span>
-		                <span>TEMPO</span>
-		                <span>REPOUSO</span>
-		                <span>EDIÇÃO</span>
-		            </div>
-		            <c:forEach var="atividade" items="${usuario.getListaAtividade()}">
-            			<div class="row">
-			                <span>${atividade.getTime()}</span>
-			                <span>${atividade.getKcal()} kcal</span>
-			                <span>${atividade.getTempo()} min</span>
-			                <span>${atividade.getDescanso()} min</span>
-			                <div>
-			                        <button>
-			                            <i class="bi bi-pencil"></i>
-			                        </button>
-			                        <button>
-			                            <i class="bi bi-trash-fill"></i>
-			                        </button>
-			                </div>
-		            	</div>
-            		</c:forEach>
-		            
-		        </div>
-            </div>
-            <div class="modal-footer">
-                <div class="buttons">
-                        <button type="button" data-bs-dismiss="modal" aria-label="Close">Voltar</button>
-                </div>
-            </div>
-          </div>
-        </div>
+			</div>
+	          
+	    </div>
+        	
+        
     </div>
 	<script src="./resources/js/insert.js"></script>
+	<script src="./resources/js/delete.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

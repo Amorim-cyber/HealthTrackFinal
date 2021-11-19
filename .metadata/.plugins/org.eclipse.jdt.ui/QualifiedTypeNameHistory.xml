@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="com.health.track.entities.Peso"/>
-    <fullyQualifiedTypeName name="com.health.track.entities.dao.PesoDAO"/>
     <fullyQualifiedTypeName name="com.health.track.interfaces.PesoInterface"/>
     <fullyQualifiedTypeName name="java.sql.DriverManager"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
@@ -14,7 +13,6 @@
     <fullyQualifiedTypeName name="com.health.track.entities.dao.PressaoDAO"/>
     <fullyQualifiedTypeName name="com.health.track.interfaces.PressaoInterface"/>
     <fullyQualifiedTypeName name="com.health.track.entities.Pressao"/>
-    <fullyQualifiedTypeName name="com.health.track.entities.dao.AtividadeDAO"/>
     <fullyQualifiedTypeName name="com.health.track.interfaces.AtividadeInterface"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.health.track.entities.Atividade"/>
@@ -28,6 +26,10 @@
     <fullyQualifiedTypeName name="com.health.track.mappers.PressaoMapper"/>
     <fullyQualifiedTypeName name="com.health.track.mappers.UsuarioMapper"/>
     <fullyQualifiedTypeName name="com.health.track.services.UsuarioService"/>
-    <fullyQualifiedTypeName name="com.health.track.entities.dao.UsuarioDAO"/>
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+    <fullyQualifiedTypeName name="com.health.track.services.PesoService"/>
+    <fullyQualifiedTypeName name="com.health.track.entities.dao.UsuarioDAO"/>
+    <fullyQualifiedTypeName name="com.health.track.entities.dao.PesoDAO"/>
+    <fullyQualifiedTypeName name="com.health.track.entities.dao.AtividadeDAO"/>
+    <fullyQualifiedTypeName name="com.health.track.services.AtividadeService"/>
 </qualifiedTypeNameHistroy>
