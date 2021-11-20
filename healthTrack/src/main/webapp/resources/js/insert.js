@@ -1,3 +1,124 @@
+function insertPressao(){
+	var novoValor = document.getElementById('novoValor').value;
+
+	if(valor == '') return;
+	
+	var row = document.createElement('div');
+	row.setAttribute('class','row');
+	
+	var codPressao = document.createElement('input');
+	codPressao.setAttribute('name','codigoPressao');
+	codPressao.setAttribute('class','form-control');
+	codPressao.setAttribute('style','display: none;');
+	
+	var data = document.createElement('span');
+	
+		    var currentdate = new Date(); 
+	
+		    var datetime =  currentdate.getDate() + "-"
+		                    + (currentdate.getMonth()+1)  + "-" 
+		                    + currentdate.getFullYear() + " "  
+		                    + currentdate.getHours() + ":"  
+		                    + currentdate.getMinutes() + ":" 
+		                    + currentdate.getSeconds();
+	
+		    data.innerHTML = datetime;
+		    
+	var valor = document.createElement('input');
+	
+		    valor.innerHTML = novoValor+".0";
+		    valor.setAttribute('name','valor');
+		    valor.setAttribute('class','form-control');
+		    valor.setAttribute('value',novoValor);
+		    
+	 var trash = document.createElement('i');
+		    trash.setAttribute('class','bi bi-trash-fill');
+	
+		    var trash_button =  document.createElement('button');
+		    trash_button.appendChild(trash);
+		    trash_button.setAttribute("type","button");
+		    trash_button.setAttribute("onclick","delPressao(this.value);");
+	
+		    var button_group =  document.createElement('div');
+		    button_group.appendChild(trash_button);
+		    
+		    var del = document.createElement('input');
+		    del.setAttribute('name','deletar');
+		    del.setAttribute('class','form-control');
+		    del.setAttribute('style','display: none;');
+		    
+			row.appendChild(codPressao);
+			row.appendChild(data);
+		    row.appendChild(valor);
+		    row.appendChild(button_group);
+		    row.appendChild(del);
+		    row.setAttribute("style","");
+
+			var table = document.getElementsByClassName('table')[1];
+	
+		    table.appendChild(row);
+		    
+		    var rows = table.getElementsByClassName('row');
+		    
+		    trash_button.setAttribute("value",rows.length-1);
+		    
+	var last = table.getElementsByClassName('row')[rows.length-1];
+		    var span0 = last.getElementsByTagName('span')[0].innerHTML;
+		    var input1 =  last.getElementsByTagName('input')[1].value;
+		    
+		    
+	for(let i = rows.length-1; i > 0;i--){
+		    	rows[i].getElementsByTagName('span')[0].innerHTML = 
+		    	rows[i-1].getElementsByTagName('span')[0].innerHTML;
+		    	
+		    	rows[i].getElementsByTagName('input')[0].setAttribute("value",
+		    	rows[i-1].getElementsByTagName('input')[0].getAttribute("value"));
+		    	
+		    	rows[i].getElementsByTagName('input')[1].value = 
+		    	rows[i-1].getElementsByTagName('input')[1].value;
+		    	
+		    	rows[i].getElementsByTagName('input')[2].setAttribute("value",
+		    	rows[i-1].getElementsByTagName('input')[2].getAttribute("value"));
+		    	
+		    	rows[i].getElementsByTagName('div')[0]
+		    	.getElementsByTagName('button')[0]
+		    	.setAttribute("value",
+		    	rows[i-1].getElementsByTagName('div')[0]
+		    	.getElementsByTagName('button')[0].getAttribute("value"));
+		    	
+		    	rows[i].getElementsByTagName('div')[0]
+		    	.getElementsByTagName('button')[0]
+		    	.setAttribute("onclick","delPressao(parseInt(this.value)+1);");
+		    	
+		    	rows[i].setAttribute("style",rows[i-1].getAttribute("style"));
+		    	
+		    }   
+		    
+			rows[0].getElementsByTagName('span')[0].innerHTML = 
+		    	span0;
+		    	
+		    	rows[0].getElementsByTagName('input')[0].setAttribute("value","");
+		    	
+		    	rows[0].getElementsByTagName('input')[1].value = 
+		    	input1+".0";
+		    	
+		    	rows[0].getElementsByTagName('input')[2].setAttribute("value","n");
+		    	
+		    	rows[0].getElementsByTagName('div')[0]
+		    	.getElementsByTagName('button')[0]
+		    	.setAttribute("value",0);
+				
+				rows[0].getElementsByTagName('div')[0]
+		    	.getElementsByTagName('button')[0]
+		    	.setAttribute("onclick","delPressao(0);");
+		    	
+		    	rows[0].setAttribute("style","");
+
+			document.getElementById('novoValor').value = '';
+		    
+
+}
+
 function insertAtividade(){
 	
 		    var valor_gasto = document.getElementById('novoKcal').value;

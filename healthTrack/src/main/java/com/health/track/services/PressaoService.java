@@ -87,17 +87,13 @@ public class PressaoService implements PressaoInterface {
 				
 				stmt.setDouble(1, pressao.getValor());
 			}else {
-				sql = "UPDATE T_HIST_PR SET NR_PRESSURE=?,"+
-						" DT_PR_REGISTER=?,"+
+				sql = "UPDATE T_HIST_PR SET NR_PRESSURE=?"+
 						" WHERE CD_PRESSURE=? AND T_PERSON_CD_PERSON=?";
 				
 				stmt= conexao.prepareStatement(sql);
 				stmt.setDouble(1, pressao.getValor());
-				Date data = new Date(pressao.getData().getTimeInMillis());
-
-				stmt.setDate(2, data);
-				stmt.setLong(3, pressao.getCodigo());
-				stmt.setLong(4, pressao.getCodigoPessoa());
+				stmt.setLong(2, pressao.getCodigo());
+				stmt.setLong(3, pressao.getCodigoPessoa());
 			}
 			
 			stmt.executeUpdate();	

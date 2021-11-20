@@ -3,7 +3,11 @@
 		<img id="cardio" src="./resources/img/cardio.png"> <span>Cardio</span>
 	</div>
 
-	<i class="bi bi-pencil"></i>
+	<a data-bs-toggle="modal" data-bs-target="#editarPressao">
+		<button>
+			<i class="bi bi-pencil"></i>
+		</button>
+	</a>
 </div>
 <div class="details">
 	<div id="pressao" class="item">

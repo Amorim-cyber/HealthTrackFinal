@@ -1,15 +1,13 @@
 <%@   page   language="java"   contentType="text/html; charset=UTF-8"
-import="com.health.track.entities.dao.UsuarioDAO" import="com.health.track.entities.Peso" 
-import="com.health.track.entities.dao.AtividadeDAO"
-import="com.health.track.services.AtividadeService"
-import="com.health.track.services.UsuarioService"
 import="com.health.track.controller.AtividadeController"
+import="com.health.track.controller.PressaoController"
 import="java.util.Calendar"
 pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%
 AtividadeController atividadeController = new AtividadeController();
+PressaoController pressaoController = new PressaoController();
 Object usuario = request.getAttribute("usuario");
 
 String chamado = request.getParameter("chamado");
@@ -18,6 +16,10 @@ if(chamado!=null){
 	switch(chamado){
 		case "atividade":{
 			atividadeController.doPost(usuario, request, response);
+			break;
+		}
+		case "pressao":{
+			pressaoController.doPost(usuario, request, response);
 			break;
 		}
 	}
@@ -74,6 +76,7 @@ if(chamado!=null){
     <%@ include file="./menu/menu.jsp" %>
     
     <%@ include file="./dashboard/modalAtividade.jsp" %>
+    <%@ include file="./dashboard/modalPressao.jsp" %>
     
 	<script src="./resources/js/insert.js"></script>
 	<script src="./resources/js/delete.js"></script>
