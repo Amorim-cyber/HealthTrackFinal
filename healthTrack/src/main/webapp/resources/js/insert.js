@@ -62,7 +62,7 @@ function insertAtividade(){
 		    button_group.appendChild(trash_button);
 		    
 		    var del = document.createElement('input');
-		    del.setAttribute('name','delete');
+		    del.setAttribute('name','deletar');
 		    del.setAttribute('class','form-control');
 		    del.setAttribute('style','display: none;');
 			
@@ -119,7 +119,7 @@ function insertAtividade(){
 		    	.getElementsByTagName('button')[0]
 		    	.setAttribute("onclick","delAtividade(parseInt(this.value)+1);");
 		    	
-		    	rows[i].setAttribute("style",rows[i].getAttribute("style"));
+		    	rows[i].setAttribute("style",rows[i-1].getAttribute("style"));
 		    	
 		    }
 		    

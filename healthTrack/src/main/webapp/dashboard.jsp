@@ -8,12 +8,9 @@ pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%
-
 Object usuario = request.getAttribute("usuario");
-
 AtividadeService atividadeService = new AtividadeService();
 UsuarioService usuarioService = new UsuarioService();
-
 if(usuario==null){
 	
 	String[] kcal = request.getParameterValues("kcal");
@@ -21,60 +18,67 @@ if(usuario==null){
 	String[] descanso = request.getParameterValues("descanso");
 	String[] codigoAtividade = request.getParameterValues("codigoAtividade");
 	String[] deletar = request.getParameterValues("deletar");
-
 	String codigoUsuario = request.getParameter("codigoUsuario");
-
-	if(kcal.length>0) {
-		
-		AtividadeDAO atividadeDAO = null;
-		
-		for(int i = 0;i<kcal.length;i++){
+	
+	if(kcal==null){
+		request.setAttribute("usuario",usuarioService.getUsuario(Long.parseLong(codigoUsuario)));
+		request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+		return;
+	}
+	
+	try{
+		if(kcal.length>0) {
 			
-			if(codigoAtividade[i].equals("")){
+			AtividadeDAO atividadeDAO = null;
+			
+			for(int i = 0;i<kcal.length;i++){
 				
-				atividadeDAO = new AtividadeDAO(
-						Double.parseDouble(kcal[i]),
-						Double.parseDouble(tempo[i]),
-						Double.parseDouble(descanso[i]),
-						Calendar.getInstance(),
-						Long.parseLong(codigoUsuario)
-						); 
-				if(deletar[i].equals("s")){
-					continue;
+				if(codigoAtividade[i].equals("")){
+					
+					atividadeDAO = new AtividadeDAO(
+							Double.parseDouble(kcal[i]),
+							Double.parseDouble(tempo[i]),
+							Double.parseDouble(descanso[i]),
+							Calendar.getInstance(),
+							Long.parseLong(codigoUsuario)
+							); 
+					if(deletar[i].equals("s")){
+						continue;
+					}else{
+						atividadeService.setAtividade(atividadeDAO);
+					}
 				}else{
-					atividadeService.setAtividade(atividadeDAO);
+					
+					atividadeDAO = new AtividadeDAO(
+							Long.parseLong(codigoAtividade[i]),
+							Double.parseDouble(kcal[i]),
+							Double.parseDouble(tempo[i]),
+							Double.parseDouble(descanso[i]),
+							Calendar.getInstance(),
+							Long.parseLong(codigoUsuario)
+							); 
+					
+					if(deletar[i].equals("s")){
+						atividadeService.deleteAtividade(
+								Long.parseLong(codigoUsuario),
+								Long.parseLong(codigoAtividade[i]));
+					}else{
+						atividadeService.setAtividade(atividadeDAO);
+					}
+					
+					
 				}
-			}else{
-				
-				atividadeDAO = new AtividadeDAO(
-						Long.parseLong(codigoAtividade[i]),
-						Double.parseDouble(kcal[i]),
-						Double.parseDouble(tempo[i]),
-						Double.parseDouble(descanso[i]),
-						Calendar.getInstance(),
-						Long.parseLong(codigoUsuario)
-						); 
-				
-				if(deletar[i].equals("s")){
-					atividadeService.deleteAtividade(
-							Long.parseLong(codigoUsuario),
-							Long.parseLong(codigoAtividade[i]));
-				}else{
-					atividadeService.setAtividade(atividadeDAO);
-				}
-				
 				
 			}
-			
-			
-			
 		}
-
+		request.setAttribute("usuario",usuarioService.getUsuario(Long.parseLong(codigoUsuario)));
+	}catch(NumberFormatException e){
+		
+		request.setAttribute("usuario",usuarioService.getUsuario(Long.parseLong(codigoUsuario)));
+		request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+	
 	}
-	request.setAttribute("usuario",usuarioService.getUsuario(Long.parseLong(codigoUsuario)));
-	request.getRequestDispatcher("dashboard.jsp").forward(request, response);
 }
-
 %>
 
 <!DOCTYPE html>
@@ -348,4 +352,3 @@ if(usuario==null){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
-

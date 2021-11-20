@@ -9,7 +9,6 @@
     <fullyQualifiedTypeName name="com.health.track.dbConnection.DBManager"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
-    <fullyQualifiedTypeName name="java.util.Calendar"/>
     <fullyQualifiedTypeName name="com.health.track.entities.dao.PressaoDAO"/>
     <fullyQualifiedTypeName name="com.health.track.interfaces.PressaoInterface"/>
     <fullyQualifiedTypeName name="com.health.track.entities.Pressao"/>
@@ -25,11 +24,12 @@
     <fullyQualifiedTypeName name="com.health.track.mappers.PesoMapper"/>
     <fullyQualifiedTypeName name="com.health.track.mappers.PressaoMapper"/>
     <fullyQualifiedTypeName name="com.health.track.mappers.UsuarioMapper"/>
-    <fullyQualifiedTypeName name="com.health.track.services.UsuarioService"/>
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
     <fullyQualifiedTypeName name="com.health.track.services.PesoService"/>
-    <fullyQualifiedTypeName name="com.health.track.entities.dao.UsuarioDAO"/>
     <fullyQualifiedTypeName name="com.health.track.entities.dao.PesoDAO"/>
-    <fullyQualifiedTypeName name="com.health.track.entities.dao.AtividadeDAO"/>
+    <fullyQualifiedTypeName name="com.health.track.entities.dao.UsuarioDAO"/>
     <fullyQualifiedTypeName name="com.health.track.services.AtividadeService"/>
+    <fullyQualifiedTypeName name="com.health.track.entities.dao.AtividadeDAO"/>
+    <fullyQualifiedTypeName name="com.health.track.services.UsuarioService"/>
+    <fullyQualifiedTypeName name="java.util.Calendar"/>
 </qualifiedTypeNameHistroy>
