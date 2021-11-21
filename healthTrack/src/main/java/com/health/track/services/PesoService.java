@@ -87,8 +87,7 @@ public class PesoService implements PesoInterface{
 				
 				stmt.setDouble(1, peso.getValor());
 			}else {
-				sql = "UPDATE T_HIST_W SET NR_WEIGHT=?,"+
-						" DT_W_REGISTER=?,"+
+				sql = "UPDATE T_HIST_W SET NR_WEIGHT=?"+
 						" WHERE CD_WEIGHT=? AND T_PERSON_CD_PERSON=?";
 				
 				stmt= conexao.prepareStatement(sql);

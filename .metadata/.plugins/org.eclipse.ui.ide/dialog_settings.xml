@@ -6,6 +6,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\HealthTrackFinal-main"/>
 			<item value="C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack"/>
 			<item value="C:\Users\lucca\OneDrive\Documentos\outros\fiap\teste"/>
 		</list>

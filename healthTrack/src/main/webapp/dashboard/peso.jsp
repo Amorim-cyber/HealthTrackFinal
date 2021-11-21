@@ -1,8 +1,28 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <c:if test="${usuario.getListaPeso().size()>=3}">
-	<span>${usuario.getListaPeso().get(0).getValor()-usuario.getListaPeso().get(2).getValor()}Kg
+<div class="head">
+	<span>${String.format("%.1f",usuario.getListaPeso().get(0).getValor()-usuario.getListaPeso().get(2).getValor())}Kg
 		em 3 dias</span>
+		
+	<a data-bs-toggle="modal" data-bs-target="#editarPeso">
+		<button>
+			<i class="bi bi-pencil"></i>
+		</button>
+	</a>
+</div>
+</c:if>
+
+<c:if test="${usuario.getListaPeso().size()<3}">
+<div class="head">
+	<span></span>
+		
+	<a data-bs-toggle="modal" data-bs-target="#editarPeso">
+		<button>
+			<i class="bi bi-pencil"></i>
+		</button>
+	</a>
+</div>
 </c:if>
 <div class="graph">
 	<div class="bars">
