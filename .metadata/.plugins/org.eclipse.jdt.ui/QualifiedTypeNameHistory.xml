@@ -27,9 +27,9 @@
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
     <fullyQualifiedTypeName name="com.health.track.services.PesoService"/>
     <fullyQualifiedTypeName name="com.health.track.entities.dao.PesoDAO"/>
-    <fullyQualifiedTypeName name="com.health.track.entities.dao.UsuarioDAO"/>
     <fullyQualifiedTypeName name="com.health.track.services.AtividadeService"/>
     <fullyQualifiedTypeName name="com.health.track.entities.dao.AtividadeDAO"/>
     <fullyQualifiedTypeName name="com.health.track.services.UsuarioService"/>
     <fullyQualifiedTypeName name="java.util.Calendar"/>
+    <fullyQualifiedTypeName name="com.health.track.entities.dao.UsuarioDAO"/>
 </qualifiedTypeNameHistroy>
