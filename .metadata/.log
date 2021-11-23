@@ -5363,3 +5363,49 @@ npm ERR!     C:\Users\lucca\AppData\Roaming\npm-cache\_logs\2021-11-22T20_44_43_
 
 !ENTRY org.eclipse.lsp4e 1 0 2021-11-22 17:54:47.436
 !MESSAGE [Info]	ESLint server running in node v14.15.4
+
+!ENTRY org.eclipse.lsp4e 1 0 2021-11-22 22:34:04.117
+!MESSAGE [Info]	ESLint server running in node v14.15.4
+
+!ENTRY org.eclipse.lsp4e 4 0 2021-11-22 22:34:06.538
+!MESSAGE [Error]	[tsserver] npm ERR! code MODULE_NOT_FOUND
+npm ERR! Cannot find module './internal/streams/stream'
+npm ERR! Require stack:
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\node_modules\fs-write-stream-atomic\node_modules\readable-stream\lib\_stream_readable.js
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\node_modules\fs-write-stream-atomic\node_modules\readable-stream\readable.js
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\node_modules\fs-write-stream-atomic\index.js
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\node_modules\copy-concurrently\copy.js
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\node_modules\move-concurrently\move.js
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\lib\pack.js
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\lib\config\figgy-config.js
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\lib\install\audit.js
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\lib\install.js
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\lib\npm.js
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\bin\npm-cli.js
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\lucca\AppData\Roaming\npm-cache\_logs\2021-11-23T01_34_06_439Z-debug.log
+
+
+!ENTRY org.eclipse.lsp4e 1 0 2021-11-22 22:39:39.101
+!MESSAGE [Info]	ESLint server running in node v14.15.4
+
+!ENTRY org.eclipse.lsp4e 4 0 2021-11-22 22:39:41.328
+!MESSAGE [Error]	[tsserver] npm ERR! code MODULE_NOT_FOUND
+npm ERR! Cannot find module './internal/streams/stream'
+npm ERR! Require stack:
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\node_modules\fs-write-stream-atomic\node_modules\readable-stream\lib\_stream_readable.js
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\node_modules\fs-write-stream-atomic\node_modules\readable-stream\readable.js
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\node_modules\fs-write-stream-atomic\index.js
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\node_modules\copy-concurrently\copy.js
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\node_modules\move-concurrently\move.js
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\lib\pack.js
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\lib\config\figgy-config.js
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\lib\install\audit.js
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\lib\install.js
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\lib\npm.js
+npm ERR! - C:\Users\lucca\OneDrive\Documentos\outros\fiap\fase7\healthTrack\.metadata\.plugins\org.eclipse.wildwebdeveloper.embedder.node\node-v14.15.4-win-x64\node_modules\npm\bin\npm-cli.js
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\lucca\AppData\Roaming\npm-cache\_logs\2021-11-23T01_39_41_223Z-debug.log
+
